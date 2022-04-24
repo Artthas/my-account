@@ -1,0 +1,46 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Roy",
+      "image": "img/contacts/contact-1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Sam",
+      "image": "img/contacts/contact-2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Jason",
+      "image": "img/contacts/contact-3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Mason",
+      "image": "img/contacts/contact-4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "John",
+      "image": "img/contacts/contact-5.jpg"
+    }
+  ],
+  "users": [
+    {
+      "email": "alex@mail.ru",
+      "password": "$2a$10$g5HiwolOOop9K0f5vPLPHOVW6TjGeo97rYY5TaLvrEts.VhL24u.C",
+      "name": "Alex",
+      "userAvatarUrl": "img/avatars/avatar-9.jpg",
+      "id": 1
+    },
+    {
+      "email": "vika@mail.ru",
+      "password": "$2a$10$/fwPzXDvqna2b.e6U1zbq.edWA/YHRDT8kNOwymKigbXzJggLLgRK",
+      "name": "Vika",
+      "userAvatarUrl": "img/avatars/avatar-5.jpg",
+      "id": 2
+    }
+  ],
+  "signin": []
+}

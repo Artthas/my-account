@@ -1,17 +1,39 @@
+import './index.scss';
+import {configureStore} from '@reduxjs/toolkit';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {createAPI} from './services/api';
+import {fetchContactsAction} from './store/api-actions';
+import {rootReducer} from './store/root-reducer';
+import browserHistory from './browser-history';
+import {Router as BrowserRouter} from 'react-router-dom';
+import {requireAuthorization} from './store/action';
+import App from './components/app/App';
+import {AuthorizationStatus} from './const';
+
+const api = createAPI(
+  () => store.dispatch(requireAuthorization(AuthorizationStatus.NoAuth)),
+);
+
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: api,
+      },
+    }),
+});
+
+store.dispatch(fetchContactsAction());
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store = {store}>
+      <BrowserRouter history={browserHistory}>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  document.getElementById('root'));

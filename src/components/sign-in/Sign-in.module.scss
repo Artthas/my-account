@@ -1,0 +1,89 @@
+.user-page {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#170202), to(#0c0101));
+  background-image: linear-gradient(-180deg, #170202 0%, #0c0101 100%);
+  color: #C9B37E;
+  padding: 15px;
+  padding-bottom: 70px;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.user-page__content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+        flex-grow: 1;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding-top: 80px;
+  padding-bottom: 142px; }
+
+.sign-in__form {
+  margin-bottom: 37px; }
+
+.sign-in__fields {
+  margin-bottom: 23px; }
+
+.sign-in__field {
+  margin-bottom: 3px;
+  position: relative; }
+  .sign-in__field:last-child {
+    margin-bottom: 0; }
+
+.sign-in__input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  background: #2B1B1B;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 30px;
+  color: #DFCF77;
+  line-height: 44px;
+  font-weight: 300;
+  padding: 25px 20px;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s; }
+  .sign-in__input::-webkit-input-placeholder {
+    opacity: 1;
+    color: rgba(223, 207, 119, 0.27); }
+  .sign-in__input:-ms-input-placeholder {
+    opacity: 1;
+    color: rgba(223, 207, 119, 0.27); }
+  .sign-in__input::-ms-input-placeholder {
+    opacity: 1;
+    color: rgba(223, 207, 119, 0.27); }
+  .sign-in__input::placeholder {
+    opacity: 1;
+    color: rgba(223, 207, 119, 0.27); }
+  .sign-in__input:focus {
+    border-color: #DFCF77; }
+
+.sign-in__btn {
+  display: block;
+  width: 100%;
+  padding: 24px 40px;
+  background: none;
+  border: 1px solid rgba(217, 205, 141, 0.41);
+  border-radius: 8px;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+  font-size: 30px;
+  line-height: 44px;
+  text-align: center;
+  color: #D9CD8D;
+  cursor: pointer; }
+  .sign-in__btn:hover, .sign-in__btn:focus {
+    border: 1px solid rgba(217, 205, 141, 0.7); }
+
+.sign-up__link {
+  display: block;
+  text-align: center;
+  color: rgba(223, 207, 119, 0.27); }
+  .sign-up__link:hover {
+    text-decoration: none; }
