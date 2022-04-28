@@ -4,6 +4,7 @@ import {AuthorizationStatus} from '../const';
 
 export type ContactsData = {
   contacts: Contacts,
+  postContactId: string,
 }
 
 export type UserData = {

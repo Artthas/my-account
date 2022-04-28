@@ -11,12 +11,14 @@ describe('Reducer: contactsData', () => {
     expect(contactsData(void 0, {type: 'UNKNOWN_ACTION'}))
       .toEqual({
         contacts: [],
+        postContactId: ""
       });
   });
 
   it('should update contacts by load contacts', () => {
     const state = {
       contacts: [],
+      postContactId: ""
     };
     expect(contactsData(state, loadContacts(contacts)))
       .toEqual({
@@ -27,21 +29,25 @@ describe('Reducer: contactsData', () => {
   it('should update contact by adding contact', () => {
     const state = {
       contacts: [],
+      postContactId: ""
     };
     expect(contactsData(state, addContact(addingContact)))
       .toEqual({
         contacts: [addingContact],
+        postContactId: ""
       });
   });
 
   it('should delete contacts by deleting contact', () => {
     const state = {
       contacts: contacts,
+      postContactId: ""
     };
     const newContacts = contacts.filter((contact) => contact.id !== deletingContact.id);
     expect(contactsData(state, deleteContact(deletingContact)))
       .toEqual({
         contacts: newContacts,
+        postContactId: ""
       });
   });
 });

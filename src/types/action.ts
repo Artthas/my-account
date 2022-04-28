@@ -10,6 +10,7 @@ import {State} from '../types/state';
 
 export enum ActionType {
   LoadContacts = 'contacts/loadContacts',
+  LoadPostContactId = 'contacts/loadPostContactId',
   AddContact = 'contacts/addContact',
   DeleteContact = 'contacts/deleteContact',
   RedirectToRoute = 'guitars/redirectToRoute',

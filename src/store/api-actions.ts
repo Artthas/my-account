@@ -1,10 +1,10 @@
 import {ThunkActionResult} from '../types/action';
 import {loadContacts, requireAuthorization, requireLogout} from './action';
 import {APIRoute, AuthorizationStatus} from '../const';
-import {Contacts, Contact} from '../types/contact';
+import {Contacts, Contact, ContactPost} from '../types/contact';
 import {toast} from 'react-toastify';
 import {dropToken, saveToken, getToken, Token} from '../services/token';
-import {dropUserAvatarUrl, saveUserAvatarUrl, getUserAvatarUrl, UserAvatarUrl} from '../services/user-avatar-url';
+import {dropUserAvatarUrl, saveUserAvatarUrl} from '../services/user-avatar-url';
 import {AxiosError} from 'axios';
 import {SignUpData} from '../types/sign-up-data';
 import {SignInData} from '../types/sign-in-data';
@@ -17,7 +17,7 @@ export const fetchContactsAction = (): ThunkActionResult =>
   async (dispatch, _getState, api): Promise<void> => {
     try {
       const {data} = await api.get<Contacts>(`/660${APIRoute.Contacts}`, {headers: {Authorization: 'Bearer ' + getToken()}});
-      dispatch(loadContacts(data));
+      dispatch(loadContacts(data.reverse()));
       dispatch(requireAuthorization(AuthorizationStatus.Auth));
     } catch(error) {
       toast.info('Сервер недоступен');
@@ -29,8 +29,32 @@ export const postContactAction = ({id, name, image}: Contact, onSuccess: postCon
   async (dispatch, _getState, api) => {
     try {
       await api.post<Contacts>(APIRoute.Contacts, {id, name, image});
-      const {data} = await api.get<Contacts>(APIRoute.Contacts);
-      dispatch(loadContacts(data));
+      const {data} = await api.get<Contacts>(`/660${APIRoute.Contacts}`, {headers: {Authorization: 'Bearer ' + getToken()}});
+      dispatch(loadContacts(data.reverse()));
+      onSuccess();
+    } catch(error) {
+      toast.info('Сервер недоступен');
+    }
+  };
+
+export const editContactAction = (contactId: string, {name, image}: ContactPost, onSuccess: postContactCbType): ThunkActionResult =>
+  async (dispatch, _getState, api) => {
+    try {
+      await api.patch(`${APIRoute.Contacts}/${contactId}`, {name, image});
+      const {data} = await api.get<Contacts>(`/660${APIRoute.Contacts}`, {headers: {Authorization: 'Bearer ' + getToken()}});
+      dispatch(loadContacts(data.reverse()));
+      onSuccess();
+    } catch(error) {
+      toast.info('Сервер недоступен');
+    }
+  };
+
+export const deleteContactAction = (contactId: string, onSuccess: postContactCbType): ThunkActionResult =>
+  async (dispatch, _getState, api) => {
+    try {
+      await api.delete(`${APIRoute.Contacts}/${contactId}`);
+      const {data} = await api.get<Contacts>(`/660${APIRoute.Contacts}`, {headers: {Authorization: 'Bearer ' + getToken()}});
+      dispatch(loadContacts(data.reverse()));
       onSuccess();
     } catch(error) {
       toast.info('Сервер недоступен');
@@ -73,5 +97,6 @@ export const signOutAction = (): ThunkActionResult =>
   async (dispatch, _getState, api) => {
     api.delete(APIRoute.SignIn);
     dropToken();
+    dropUserAvatarUrl();
     dispatch(requireLogout());
   };

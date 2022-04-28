@@ -10,6 +10,13 @@ export const loadContacts = createAction(
   }),
 );
 
+export const loadPostContactId = createAction(
+  ActionType.LoadPostContactId,
+  (postContactId: string) => ({
+    payload: postContactId,
+  }),
+);
+
 export const addContact = createAction(
   ActionType.AddContact,
   (addingContact: Contact) => ({

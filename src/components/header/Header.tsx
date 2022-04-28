@@ -1,6 +1,4 @@
 import SCSS from './Header.module.scss';
-import {AuthorizationStatus} from '../../const';
-import {getAuthorizationStatus} from '../../store/user-data/selectors';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import {signOutAction} from '../../store/api-actions';
@@ -15,7 +13,6 @@ type HeaderProps = {
 }
 
 function Header({isContacts, isSignIn, headerTitle}: HeaderProps): JSX.Element {
-  const authorizationStatus = useSelector(getAuthorizationStatus);
   const userAvatarUrl = useSelector(getUserAvatarUrl);
 
   const dispatch = useDispatch();
