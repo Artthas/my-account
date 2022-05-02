@@ -1,24 +1,14 @@
 {
   "contacts": [
     {
-      "id": 15,
-      "name": "Lana",
-      "image": "img/contacts/contact-2.jpg"
+      "id": 1,
+      "name": "Nan",
+      "image": "img/contacts/contact-7.jpg"
     },
     {
-      "id": 16,
-      "name": "Ley",
-      "image": "img/contacts/contact-16.jpg"
-    },
-    {
-      "id": 17,
-      "name": "Lara",
-      "image": "img/contacts/contact-8.jpg"
-    },
-    {
-      "id": 18,
-      "name": "Nay",
-      "image": "img/contacts/contact-9.jpg"
+      "id": 2,
+      "name": "Lala",
+      "image": "img/contacts/contact-1.jpg"
     }
   ],
   "users": [

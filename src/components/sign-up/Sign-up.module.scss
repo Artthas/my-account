@@ -1,19 +1,4 @@
-.user-page {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#170202), to(#0c0101));
-  background-image: linear-gradient(-180deg, #170202 0%, #0c0101 100%);
-  color: #C9B37E;
-  padding: 15px;
-  padding-bottom: 70px;
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column; }
-
-.user-page__content {
+.wrapper {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
         flex-grow: 1;
@@ -23,19 +8,19 @@
   padding-top: 80px;
   padding-bottom: 165px; }
 
-.sign-up__form {
+.form {
   margin-bottom: 37px; }
 
-.sign-up__fields {
+.fields {
   margin-bottom: 23px; }
 
-.sign-up__field {
+.field {
   margin-bottom: 3px;
   position: relative; }
-  .sign-up__field:last-child {
+  .field:last-child {
     margin-bottom: 0; }
 
-.sign-up__input {
+.input {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -49,22 +34,22 @@
   padding: 25px 20px;
   -webkit-transition: border-color 0.2s;
   transition: border-color 0.2s; }
-  .sign-up__input::-webkit-input-placeholder {
+  .input::-webkit-input-placeholder {
     opacity: 1;
     color: rgba(223, 207, 119, 0.27); }
-  .sign-up__input:-ms-input-placeholder {
+  .input:-ms-input-placeholder {
     opacity: 1;
     color: rgba(223, 207, 119, 0.27); }
-  .sign-up__input::-ms-input-placeholder {
+  .input::-ms-input-placeholder {
     opacity: 1;
     color: rgba(223, 207, 119, 0.27); }
-  .sign-up__input::placeholder {
+  .input::placeholder {
     opacity: 1;
     color: rgba(223, 207, 119, 0.27); }
-  .sign-up__input:focus {
+  .input:focus {
     border-color: #DFCF77; }
 
-.sign-up__btn {
+.btn {
   display: block;
   width: 100%;
   padding: 24px 40px;
@@ -78,5 +63,5 @@
   text-align: center;
   color: #D9CD8D;
   cursor: pointer; }
-  .sign-up__btn:hover, .sign-up__btn:focus {
+  .btn:hover, .sign-up__btn:focus {
     border: 1px solid rgba(217, 205, 141, 0.7); }

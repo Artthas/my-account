@@ -1,8 +1,8 @@
-import SCSS from './Sign-in.module.scss';
+import styles from './Sign-in.module.scss';
 import Footer from '../footer/Footer';
 import {SignInData} from '../../types/sign-in-data';
 import {fetchContactsAction, signInAction} from '../../store/api-actions';
-import {useRef, FormEvent} from 'react';
+import React, {useRef, FormEvent} from 'react';
 import {AppRoute} from '../../const';
 import {Link, useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
@@ -44,20 +44,20 @@ function SignIn(): JSX.Element {
   const re = /[0-9]{1,}[a-zA-Z]{1,}|[a-zA-Z]{1,}[0-9]{1,}/;
 
   return (
-    <div className={SCSS['user-page']}>
+    <React.Fragment>
 
-      <Header isContacts={false} isSignIn headerTitle={'user-page__head'}/>
+      <Header isContacts={false} isSignIn/>
 
-      <div className={SCSS['user-page__content']}>
+      <div className={styles.wrapper}>
         <form
           action="#"
-          className={SCSS['sign-in__form']}
+          className={styles.form}
           onSubmit={handleSubmit}
         >
-          <div className={SCSS['sign-in__fields']}>
-            <div className={SCSS['sign-in__field']}>
+          <div className={styles.fields}>
+            <div className={styles.field}>
               <input
-                className={SCSS['sign-in__input']}
+                className={styles.input}
                 type="email"
                 placeholder="Email address"
                 name="user-email"
@@ -66,9 +66,9 @@ function SignIn(): JSX.Element {
               />
               <label className="visually-hidden" htmlFor="user-email">Email address</label>
             </div>
-            <div className={SCSS['sign-in__field']}>
+            <div className={styles.field}>
               <input
-                className={SCSS['sign-in__input']}
+                className={styles.input}
                 type="password"
                 placeholder="Password"
                 name="user-password"
@@ -84,16 +84,16 @@ function SignIn(): JSX.Element {
               <label className="visually-hidden" htmlFor="user-password">Password</label>
             </div>
           </div>
-          <div className={SCSS['sign-in__submit']}>
+          <div className={styles.submit}>
             <button
-              className={SCSS['sign-in__btn']}
+              className={styles.btn}
               type="submit"
             >Sign in
             </button>
           </div>
         </form>
-        <div className={SCSS['sign-up']}>
-          <Link className={SCSS['sign-up__link']} to={AppRoute.SignUp}>
+        <div className={styles.signUpBtn}>
+          <Link className={styles.signUpLink} to={AppRoute.SignUp}>
             If you don't have account you must SIGN UP
           </Link>
         </div>
@@ -101,7 +101,7 @@ function SignIn(): JSX.Element {
 
       <Footer />
 
-    </div>
+    </React.Fragment>
   );
 }
 

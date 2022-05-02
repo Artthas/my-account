@@ -1,4 +1,4 @@
-import SCSS from './Logo.module.scss';
+import styles from './Logo.module.scss';
 import {Link} from 'react-router-dom';
 
 type LogoProps = {
@@ -7,11 +7,11 @@ type LogoProps = {
 
 function Logo({logoTitle}: LogoProps): JSX.Element {
   return (
-    <div className={SCSS['logo']}>
-      <Link className={SCSS[`${logoTitle}`]} to="/">
-        <span className={SCSS['logo__letter--1']}>C</span>
-        <span className={SCSS['logo__letter--2']}>N</span>
-        <span className={SCSS['logo__letter--3']}>T</span>
+    <div className={styles.logo}>
+      <Link className={styles[`${logoTitle}`]} to="/">
+        <span className={styles.letter1}>C</span>
+        <span className={styles.letter2}>N</span>
+        <span className={styles.letter3}>T</span>
       </Link>
     </div>
   );

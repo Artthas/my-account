@@ -1,4 +1,4 @@
-import SCSS from './Header.module.scss';
+import styles from './Header.module.scss';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import {signOutAction} from '../../store/api-actions';
@@ -9,33 +9,34 @@ import React from 'react';
 type HeaderProps = {
   isContacts: boolean,
   isSignIn: boolean,
-  headerTitle: string,
 }
 
-function Header({isContacts, isSignIn, headerTitle}: HeaderProps): JSX.Element {
+function Header({isContacts, isSignIn}: HeaderProps): JSX.Element {
   const userAvatarUrl = useSelector(getUserAvatarUrl);
 
   const dispatch = useDispatch();
 
   return (
-    <header className={SCSS[`${headerTitle}`]}>
+    <header className={styles.header}>
 
-      <Logo logoTitle='logo__link'/>
+      <Logo logoTitle="link"/>
 
-      {!isContacts && !isSignIn ? <h1 className={SCSS['user-page__title']}>Sign up</h1> : ''}
+      {isSignIn ? <h1 className={styles.title}>Sign in</h1> : ''}
+
+      {!isContacts && !isSignIn ? <h1 className={styles.title}>Sign up</h1> : ''}
 
       {isContacts ?
         <React.Fragment>
-          <h1 className={SCSS['user-page__title']}>Contacts</h1>
-          <ul className={SCSS['user-block']}>
-            <li className={SCSS['user-block__item']}>
-              <div className={SCSS['user-block__avatar']}>
+          <h1 className={styles.title}>Contacts</h1>
+          <ul className={styles.user}>
+            <li className={styles.userItem}>
+              <div className={styles.userAvatar}>
                 <img src={userAvatarUrl} alt="User avatar" width="63" height="63" />
               </div>
             </li>
-            <li className={SCSS['user-block__item']}>
+            <li className={styles.userItem}>
               <a
-                className={SCSS['user-block__link']}
+                className={styles.userLink}
                 href="/"
                 onClick={(evt) => {
                 evt.preventDefault();
@@ -47,8 +48,6 @@ function Header({isContacts, isSignIn, headerTitle}: HeaderProps): JSX.Element {
             </li>
           </ul>
         </React.Fragment> : ''}
-
-      {isSignIn ? <h1 className={SCSS['user-page__title']}>Sign in</h1> : ''}
     </header>
   );
 }

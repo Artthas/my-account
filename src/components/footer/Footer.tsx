@@ -1,13 +1,13 @@
-import SCSS from './Footer.module.scss';
+import styles from './Footer.module.scss';
 import Logo from '../logo/Logo';
 
 function Footer(): JSX.Element {
   return (
-    <footer className={SCSS['page-footer']}>
+    <footer>
       
-      <Logo logoTitle='logo__link--light'/>
+      <Logo logoTitle="linkLight"/>
 
-      <div className={SCSS['copyright']}>
+      <div className={styles.copyright}>
         <p>© 2022 Contacts Ltd.</p>
       </div>
     </footer>

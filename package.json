@@ -33,6 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "eslint": "eslint --ext .tsx --ext .ts src/",
     "json-server": "json-server src/db.json --port 8000 -m ./node_modules/json-server-auth"
   },
   "eslintConfig": {
@@ -58,6 +59,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/react-transition-group": "^4.4.4",
     "axios-mock-adapter": "^1.20.0",
+    "eslint-config-htmlacademy": "^5.1.2",
     "json-server-auth": "^2.1.0"
   }
 }

@@ -1,4 +1,4 @@
-import SCSS from './Sign-up.module.scss';
+import styles from './Sign-up.module.scss';
 import Footer from '../footer/Footer';
 import {SignUpData} from '../../types/sign-up-data';
 import {fetchContactsAction, signUpAction} from '../../store/api-actions';
@@ -7,6 +7,7 @@ import {AppRoute} from '../../const';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import Header from '../header/Header';
+import React from 'react';
 
 function SignUp(): JSX.Element {
 
@@ -51,20 +52,21 @@ function SignUp(): JSX.Element {
   const re = /[0-9]{1,}[a-zA-Z]{1,}|[a-zA-Z]{1,}[0-9]{1,}/;
 
   return (
-    <div className={SCSS['user-page']}>
+    <React.Fragment>
+      <h1 className='visually-hidden'>Sign up</h1>
 
-      <Header isContacts={false} isSignIn={false} headerTitle={'user-page__head'}/>
+      <Header isContacts={false} isSignIn={false}/>
 
-      <div className={SCSS['user-page__content']}>
+      <div className={styles.wrapper}>
         <form
           action="#"
-          className={SCSS['sign-up__form']}
+          className={styles.form}
           onSubmit={handleSubmit}
         >
-          <div className={SCSS['sign-up__fields']}>
-            <div className={SCSS['sign-up__field']}>
+          <div className={styles.fields}>
+            <div className={styles.field}>
               <input
-                className={SCSS['sign-up__input']}
+                className={styles.input}
                 type="text"
                 placeholder="Name"
                 name="user-name"
@@ -73,9 +75,9 @@ function SignUp(): JSX.Element {
               />
               <label className="visually-hidden" htmlFor="user-name">Name</label>
             </div>
-            <div className={SCSS['sign-up__field']}>
+            <div className={styles.field}>
               <input
-                className={SCSS['sign-up__input']}
+                className={styles.input}
                 type="email"
                 placeholder="Email address"
                 name="user-email"
@@ -84,9 +86,9 @@ function SignUp(): JSX.Element {
               />
               <label className="visually-hidden" htmlFor="user-email">Email address</label>
             </div>
-            <div className={SCSS['sign-up__field']}>
+            <div className={styles.field}>
               <input
-                className={SCSS['sign-up__input']}
+                className={styles.input}
                 type="password"
                 placeholder="Password"
                 name="user-password-first"
@@ -101,9 +103,9 @@ function SignUp(): JSX.Element {
               />
               <label className="visually-hidden" htmlFor="user-password-first">Password</label>
             </div>
-            <div className={SCSS['sign-up__field']}>
+            <div className={styles.field}>
               <input
-                className={SCSS['sign-up__input']}
+                className={styles.input}
                 type="password"
                 placeholder="Confirm password"
                 name="user-password-second"
@@ -119,9 +121,9 @@ function SignUp(): JSX.Element {
               <label className="visually-hidden" htmlFor="user-password-second">Password</label>
             </div>
           </div>
-          <div className={SCSS['sign-up__submit']}>
+          <div className={styles.submit}>
             <button
-              className={SCSS['sign-up__btn']}
+              className={styles.btn}
               type="submit"
             >Sign up
             </button>
@@ -131,7 +133,7 @@ function SignUp(): JSX.Element {
 
       <Footer />
 
-    </div>
+    </React.Fragment>
   );
 }
 

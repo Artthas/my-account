@@ -18,8 +18,6 @@ function ContactCard({contact}: ContactCardProps): JSX.Element {
 
   const dispatch = useDispatch();
 
-  console.log(contact.id);
-
   const [isCard, setIsCard] = useState(true);
   const [isCardEdit, setIsCardEdit] = useState(false);
   const [isCardHover, setIsCardHover] = useState(false);
@@ -33,7 +31,7 @@ function ContactCard({contact}: ContactCardProps): JSX.Element {
       setIsCardEdit(true);
       setIsCardHover(false);
     }
-  }, [postContactId]);
+  }, [postContactId, contact.id]);
   
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();

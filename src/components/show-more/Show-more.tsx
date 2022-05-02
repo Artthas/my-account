@@ -1,4 +1,4 @@
-import SCSS from './Show-more.module.scss';
+import styles from './Show-more.module.scss';
 
 type ShowMoreProps = {
   onShowMoreClick(): void,
@@ -8,9 +8,9 @@ function ShowMore(props: ShowMoreProps): JSX.Element {
   const {onShowMoreClick} = props;
 
   return (
-    <div className="catalog__more">
+    <div className={styles.showMore}>
       <button
-        className={SCSS['catalog__button']} type="button"
+        className={styles.showMoreButton} type="button"
         onClick={onShowMoreClick}
       >
         Show more
